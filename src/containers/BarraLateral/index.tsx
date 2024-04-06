@@ -3,7 +3,7 @@ import FiltroCard from '../../components/FiltroCard'
 import * as S from './styles'
 import { RootReducer } from '../../store'
 import { alterarTermo } from '../../store/reducers/filtro'
-import * as enums from '../../utils/enums/Tarefa'
+import * as enums from '../../utils/enums/Contato'
 import { Campo, Botao } from '../../styles'
 import { useNavigate } from 'react-router-dom'
 
@@ -29,29 +29,29 @@ const BarraLateral = ({ mostrarFiltros }: Props) => {
             />
             <S.Filtros>
               <FiltroCard
-                valor={enums.Status.PENDENTE}
-                criterio="status"
-                legenda="pendentes"
-              />
-              <FiltroCard
-                valor={enums.Status.CONCLUIDA}
-                criterio="status"
-                legenda="concluídas"
-              />
-              <FiltroCard
-                valor={enums.Prioridade.URGENTE}
-                criterio="prioridade"
-                legenda="urgentes"
-              />
-              <FiltroCard
-                valor={enums.Prioridade.IMPORTANTE}
-                criterio="prioridade"
-                legenda="importantes"
-              />
-              <FiltroCard
-                valor={enums.Prioridade.NORMAL}
-                criterio="prioridade"
+                valor={enums.Favorito.NORMAL}
+                criterio="favorito"
                 legenda="normal"
+              />
+              <FiltroCard
+                valor={enums.Favorito.FAVORITO}
+                criterio="favorito"
+                legenda="favorito"
+              />
+              <FiltroCard
+                valor={enums.Tipo.SERVICOS}
+                criterio="tipo"
+                legenda="serviços"
+              />
+              <FiltroCard
+                valor={enums.Tipo.PESSOAL}
+                criterio="tipo"
+                legenda="pessoal"
+              />
+              <FiltroCard
+                valor={enums.Tipo.TRABALHO}
+                criterio="tipo"
+                legenda="trabalho"
               />
               <FiltroCard criterio="todas" legenda="todas" />
             </S.Filtros>
