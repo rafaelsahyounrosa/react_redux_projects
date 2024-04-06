@@ -59,7 +59,7 @@ const BarraLateral = ({ mostrarFiltros }: Props) => {
         ) : (
           <Botao onClick={() => navigate('/')}>
             {' '}
-            Voltar para a tela de tarefas
+            Voltar para a tela de contatos
           </Botao>
         )}
       </div>

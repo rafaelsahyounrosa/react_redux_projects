@@ -13,13 +13,13 @@ const Contato = ({
   tipo,
   favorito,
   nome,
-  // numero,
+  numero: numeroOriginal,
   id
 }: Props) => {
   const dispatch = useDispatch()
   const [estaEditando, setEstaEditando] = useState(false)
   const [email, setEmail] = useState('')
-  const [telefone, setTelefone] = useState('')
+  const [numero, setTelefone] = useState(0)
 
   useEffect(() => {
     if (emailOriginal.length > 0) {
@@ -27,11 +27,11 @@ const Contato = ({
     }
   }, [emailOriginal])
 
-  // useEffect(() => {
-  //   if (numeroOriginal > 0) {
-  //     setNumero(numeroOriginal)
-  //   }
-  // }, [numeroOriginal])
+  useEffect(() => {
+    if (numeroOriginal > 0) {
+      setTelefone(numeroOriginal)
+    }
+  }, [numeroOriginal])
 
   function cancelarEdicao() {
     setEstaEditando(false)
@@ -73,10 +73,11 @@ const Contato = ({
         onChange={(evento) => setEmail(evento.target.value)}
       />
       <S.NumeroInput
+        disabled={!estaEditando}
         type="number"
         placeholder="Insira o numero"
-        value={telefone}
-        onChange={(evento) => setTelefone(evento.target.value)}
+        value={numero}
+        onChange={(evento) => setTelefone(parseInt(evento.target.value))}
       />
       <S.BarraAcoes>
         {estaEditando ? (
@@ -89,7 +90,7 @@ const Contato = ({
                     tipo,
                     favorito,
                     nome,
-                    numero: parseInt(telefone),
+                    numero,
                     id
                   })
                 )

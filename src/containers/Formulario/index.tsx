@@ -45,6 +45,7 @@ const Formulario = () => {
           as="textarea"
           placeholder="email"
         ></Campo>
+        <p>Numero</p>
         <Campo
           value={numero}
           onChange={(e) => setNumero(parseInt(e.target.value))}

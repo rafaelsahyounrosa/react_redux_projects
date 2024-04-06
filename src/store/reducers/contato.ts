@@ -64,6 +64,7 @@ const contatosSlice = createSlice({
           ...action.payload,
           id: ultimaContato ? ultimaContato.id + 1 : 1
         }
+        console.log(contatoNovo)
         state.itens.push(contatoNovo)
       }
     },
